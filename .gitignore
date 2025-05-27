@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignorar archivos de bases de datos SQLite
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3

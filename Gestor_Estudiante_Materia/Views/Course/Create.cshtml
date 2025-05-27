@@ -1,0 +1,12 @@
+﻿@model Domain.ViewModels.CourseVM
+@{
+    ViewData["Title"] = "Crear Curso";
+    ViewData["FormAction"] = "Create";
+}
+
+<h2>Crear Curso</h2>
+<partial name="_CourseForm" model="Model" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

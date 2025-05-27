@@ -1,0 +1,35 @@
+﻿@using Domain.ViewModels
+@model StudentVM
+
+<form asp-action="@ViewData["FormAction"]" method="post" class="mt-4">
+    @if (!string.IsNullOrEmpty(Model.Id))
+    {
+            <input type="hidden" asp-for="Id" />
+    }
+    <div class="form-group mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Document" class="form-label"></label>
+        <input asp-for="Document" class="form-control" />
+        <span asp-validation-for="Document" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        @(string.IsNullOrEmpty(Model.Id) ? "Crear" : "Guardar")
+    </button>
+
+    @if (ViewBag.ErrorMsg != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.ErrorMsg
+        </div>
+    }
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>

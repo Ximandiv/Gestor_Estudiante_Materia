@@ -1,0 +1,13 @@
+﻿@using Domain.ViewModels
+@model StudentVM
+@{
+    ViewData["Title"] = "Modificar Estudiante";
+    ViewData["FormAction"] = "Edit";
+}
+
+<h2>Modificar Estudiante</h2>
+<partial name="_StudentForm" model="Model" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

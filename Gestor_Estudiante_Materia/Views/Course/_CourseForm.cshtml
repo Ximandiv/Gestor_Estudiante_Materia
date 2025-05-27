@@ -1,0 +1,32 @@
+﻿@model Domain.ViewModels.CourseVM
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMsg as string))
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMsg</div>
+}
+
+<form asp-action="@ViewData["FormAction"]" method="post" class="mt-4">
+    @if (!string.IsNullOrEmpty(Model.Id) && Model.Id != "0")
+    {
+        <input type="hidden" asp-for="Id" />
+    }
+    <div class="form-group mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Code" class="form-label"></label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Credits" class="form-label"></label>
+        <input asp-for="Credits" class="form-control" type="number" min="1" />
+        <span asp-validation-for="Credits" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        @(string.IsNullOrEmpty(Model.Id) || Model.Id == "0" ? "Crear" : "Guardar")
+    </button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
